@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+  --color-accent: #ffd311;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --font-family-mono: "JetBrains Mono", monospace;
+  --font-family-display: "Array", "JetBrains Mono", monospace;
+  --border-thin: 0.5px;
+}
+
+@font-face {
+  font-family: "Array";
+  src: local("Array-Regular"), local("Array Regular");
+  font-weight: 400;
+  font-style: normal;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #000000;
+  color: #ffffff;
+  font-family: "JetBrains Mono", monospace;
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+}

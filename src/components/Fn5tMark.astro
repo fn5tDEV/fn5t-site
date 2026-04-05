@@ -1,0 +1,61 @@
+---
+// fn5t pixel mark — SVG recreation of the brand logo
+interface Props {
+  size?: number;
+  color?: string;
+}
+const { size = 70, color = '#ffffff' } = Astro.props;
+---
+
+<!--
+  Pixel-grid logo mark: fn5t arranged in a 2×2 block grid.
+  Each quadrant is a thick-bordered cell with its letter rendered
+  using rectangle primitives to echo the bitmap/pixel aesthetic.
+-->
+<svg
+  width={size}
+  height={size}
+  viewBox="0 0 70 70"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-label="fn5t"
+>
+  <!-- f — top left quadrant (0,0 to 33,33) -->
+  <!-- vertical stem -->
+  <rect x="6" y="4" width="5" height="25" fill={color} />
+  <!-- top crossbar -->
+  <rect x="6" y="4" width="20" height="5" fill={color} />
+  <!-- mid crossbar -->
+  <rect x="6" y="14" width="14" height="5" fill={color} />
+
+  <!-- n — top right quadrant (37,0 to 70,33) -->
+  <!-- left stem -->
+  <rect x="39" y="4" width="5" height="25" fill={color} />
+  <!-- right stem -->
+  <rect x="58" y="4" width="5" height="25" fill={color} />
+  <!-- diagonal bridge (approximated as sloped rects) -->
+  <rect x="44" y="4"  width="5" height="5"  fill={color} />
+  <rect x="49" y="9"  width="5" height="5"  fill={color} />
+  <rect x="54" y="14" width="4" height="5"  fill={color} />
+
+  <!-- 5 — bottom left quadrant (0,37 to 33,70) -->
+  <!-- top bar -->
+  <rect x="6" y="39" width="20" height="5" fill={color} />
+  <!-- upper-left stub -->
+  <rect x="6" y="44" width="5" height="5" fill={color} />
+  <!-- mid bar -->
+  <rect x="6" y="49" width="20" height="5" fill={color} />
+  <!-- lower-right stem -->
+  <rect x="21" y="54" width="5" height="5" fill={color} />
+  <!-- bottom bar -->
+  <rect x="6" y="59" width="20" height="5" fill={color} />
+
+  <!-- t — bottom right quadrant (37,37 to 70,70) -->
+  <!-- vertical stem -->
+  <rect x="46" y="39" width="5" height="25" fill={color} />
+  <!-- top crossbar -->
+  <rect x="39" y="44" width="19" height="5" fill={color} />
+  <!-- bottom serifs -->
+  <rect x="42" y="64" width="4" height="3" fill={color} />
+  <rect x="51" y="64" width="4" height="3" fill={color} />
+</svg>

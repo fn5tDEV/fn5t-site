@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import MetaBlock from '../components/MetaBlock.astro';
+
+const meta = [
+  { key: 'status', value: 'coming soon', accent: true },
+  { key: 'year',   value: '2026' },
+];
+---
+
+<BaseLayout title="fn5t" description="fn5t studio — coming soon">
+  <main class="page">
+    <div class="border-frame">
+
+      <!-- Center mark -->
+      <div class="center">
+        <img src="/Plugin/white-logo.png" alt="fn5t" class="wordmark-logo" />
+        <p class="submark">fn5t <span class="accent">studio</span></p>
+      </div>
+
+      <!-- Bottom-right meta block -->
+      <div class="corner">
+        <MetaBlock rows={meta} showMark={false} />
+      </div>
+
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .page {
+    min-height: 100vh;
+    min-height: 100dvh;
+    background: #000;
+    padding: 10px;
+  }
+
+  /* Thin white border inset from the viewport edge — matches Figma cover */
+  .border-frame {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 20px);
+    height: calc(100dvh - 20px);
+    border: 0.5px solid #ffffff;
+    overflow: hidden;
+  }
+
+  /* "fn5t" centered */
+  .center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  .wordmark-logo {
+    width: 100px;
+    height: 100px;
+    display: block;
+    object-fit: contain;
+  }
+
+  .submark {
+    font-family: "JetBrains Mono", monospace;
+    font-size: clamp(14px, 2vw, 20px);
+    font-weight: 400;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: 0.02em;
+  }
+
+  .accent {
+    color: #ffd311;
+  }
+
+  /* Bottom-right corner block */
+  .corner {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    min-width: 180px;
+    max-width: 260px;
+  }
+
+  @media (max-width: 480px) {
+    .corner {
+      bottom: 10px;
+      right: 10px;
+      min-width: 140px;
+      font-size: 12px;
+    }
+  }
+</style>

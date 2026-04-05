@@ -1,0 +1,83 @@
+---
+// MetaBlock — a structured info table matching the fn5t Figma cover aesthetic.
+// Renders a list of key/value rows with 0.5px white borders.
+
+interface Row {
+  key: string;
+  value: string;
+  accent?: boolean; // render value in #ffd311
+}
+
+interface Props {
+  rows: Row[];
+  showMark?: boolean;
+}
+
+const { rows, showMark = true } = Astro.props;
+---
+
+<div class="meta-block">
+  {showMark && (
+    <div class="mark-wrap">
+      <img src="/Plugin/white-logo.png" alt="fn5t" class="mark-img" />
+    </div>
+  )}
+  <div class="table">
+    {rows.map((row) => (
+      <div class="row">
+        <span class="key">{row.key}:</span>
+        <span class={`value${row.accent ? ' accent' : ''}`}>{row.value}</span>
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .meta-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 20px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 14px;
+    color: #ffffff;
+  }
+
+  .mark-wrap {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .mark-img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    display: block;
+  }
+
+  .table {
+    border-top: 0.5px solid #ffffff;
+    border-left: 0.5px solid #ffffff;
+    border-right: 0.5px solid #ffffff;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    border-bottom: 0.5px solid #ffffff;
+    white-space: nowrap;
+  }
+
+  .key {
+    opacity: 0.5;
+  }
+
+  .accent {
+    color: #ffd311;
+  }
+</style>
