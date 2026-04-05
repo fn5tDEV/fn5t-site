@@ -1,0 +1,5 @@
+name = "fn5t-site"
+compatibility_date = "2025-04-05"
+
+[assets]
+directory = "./dist"
